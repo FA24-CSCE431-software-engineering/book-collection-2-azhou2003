@@ -44,6 +44,8 @@ gem "yaml_db"
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", require: false
 
+gem "rexml"
+
 # Use Sass to process CSS
 # gem "sassc-rails"
 
@@ -75,4 +77,5 @@ group :test do
   gem "simplecov", :require => false
 end
 
+gem "brakeman"
 gem "rspec-rails", "~> 6.1"
