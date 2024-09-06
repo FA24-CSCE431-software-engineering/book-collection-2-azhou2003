@@ -941,3 +941,123 @@ Completed 422 Unprocessable Entity in 27ms (Views: 21.7ms | ActiveRecord: 0.0ms 
   [1m[36mTRANSACTION (0.7ms)[0m  [1m[31mROLLBACK[0m
   [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
   [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (17.0ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (4.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mBEGIN[0m
+Started GET "/books/new" for 127.0.0.1 at 2024-09-06 17:53:56 +0000
+Processing by BooksController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering books/new.html.erb within layouts/application
+  Rendered books/_form.html.erb (Duration: 43.1ms | Allocations: 5109)
+  Rendered books/new.html.erb within layouts/application (Duration: 53.7ms | Allocations: 5777)
+  Rendered layout layouts/application.html.erb (Duration: 481.5ms | Allocations: 37091)
+Completed 200 OK in 617ms (Views: 499.4ms | ActiveRecord: 26.6ms | Allocations: 47686)
+Started POST "/books" for 127.0.0.1 at 2024-09-06 17:53:57 +0000
+Processing by BooksController#create as HTML
+  Parameters: {"book"=>{"title"=>"The Great Gatsby", "author"=>"F. Scott Fitzgerald", "price"=>"19.99", "published_date(1i)"=>"2024", "published_date(2i)"=>"8", "published_date(3i)"=>"28"}, "commit"=>"Create Book"}
+Book Params: #<ActionController::Parameters {"title"=>"The Great Gatsby", "author"=>"F. Scott Fitzgerald", "price"=>"19.99", "published_date(1i)"=>"2024", "published_date(2i)"=>"8", "published_date(3i)"=>"28"} permitted: true>
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mBook Create (26.6ms)[0m  [1m[32mINSERT INTO "books" ("title", "created_at", "updated_at", "author", "price", "published_date") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "The Great Gatsby"], ["created_at", "2024-09-06 17:53:57.262039"], ["updated_at", "2024-09-06 17:53:57.262039"], ["author", "F. Scott Fitzgerald"], ["price", "19.99"], ["published_date", "2024-08-28"]]
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/books
+Completed 302 Found in 96ms (ActiveRecord: 29.5ms | Allocations: 2112)
+Started GET "/books" for 127.0.0.1 at 2024-09-06 17:53:57 +0000
+Processing by BooksController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Load (2.6ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+  Rendered books/_book.html.erb (Duration: 11.5ms | Allocations: 283)
+  Rendered books/index.html.erb within layouts/application (Duration: 38.0ms | Allocations: 1690)
+  Rendered layout layouts/application.html.erb (Duration: 45.2ms | Allocations: 2558)
+Completed 200 OK in 51ms (Views: 45.7ms | ActiveRecord: 2.6ms | Allocations: 2982)
+  [1m[36mTRANSACTION (2.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
+Started GET "/books/new" for 127.0.0.1 at 2024-09-06 17:53:57 +0000
+Processing by BooksController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering books/new.html.erb within layouts/application
+  Rendered books/_form.html.erb (Duration: 18.9ms | Allocations: 2686)
+  Rendered books/new.html.erb within layouts/application (Duration: 20.7ms | Allocations: 2757)
+  Rendered layout layouts/application.html.erb (Duration: 26.6ms | Allocations: 3618)
+Completed 200 OK in 31ms (Views: 30.2ms | ActiveRecord: 0.0ms | Allocations: 3907)
+Started POST "/books" for 127.0.0.1 at 2024-09-06 17:53:57 +0000
+Processing by BooksController#create as HTML
+  Parameters: {"book"=>{"title"=>"", "author"=>"F. Scott Fitzgerald", "price"=>"19.99", "published_date(1i)"=>"2024", "published_date(2i)"=>"8", "published_date(3i)"=>"28"}, "commit"=>"Create Book"}
+Book Params: #<ActionController::Parameters {"title"=>"", "author"=>"F. Scott Fitzgerald", "price"=>"19.99", "published_date(1i)"=>"2024", "published_date(2i)"=>"8", "published_date(3i)"=>"28"} permitted: true>
+  Rendering layout layouts/application.html.erb
+  Rendering books/new.html.erb within layouts/application
+  Rendered books/_form.html.erb (Duration: 25.0ms | Allocations: 3497)
+  Rendered books/new.html.erb within layouts/application (Duration: 27.0ms | Allocations: 3561)
+  Rendered layout layouts/application.html.erb (Duration: 33.3ms | Allocations: 4352)
+Completed 422 Unprocessable Entity in 43ms (Views: 36.1ms | ActiveRecord: 0.0ms | Allocations: 5171)
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mBEGIN[0m
+Started GET "/books/new" for 127.0.0.1 at 2024-09-06 17:53:57 +0000
+Processing by BooksController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering books/new.html.erb within layouts/application
+  Rendered books/_form.html.erb (Duration: 17.7ms | Allocations: 2689)
+  Rendered books/new.html.erb within layouts/application (Duration: 19.4ms | Allocations: 2760)
+  Rendered layout layouts/application.html.erb (Duration: 25.4ms | Allocations: 3621)
+Completed 200 OK in 30ms (Views: 28.3ms | ActiveRecord: 0.0ms | Allocations: 3907)
+Started POST "/books" for 127.0.0.1 at 2024-09-06 17:53:57 +0000
+Processing by BooksController#create as HTML
+  Parameters: {"book"=>{"title"=>"The Great Gatsby", "author"=>"", "price"=>"19.99", "published_date(1i)"=>"2024", "published_date(2i)"=>"8", "published_date(3i)"=>"28"}, "commit"=>"Create Book"}
+Book Params: #<ActionController::Parameters {"title"=>"The Great Gatsby", "author"=>"", "price"=>"19.99", "published_date(1i)"=>"2024", "published_date(2i)"=>"8", "published_date(3i)"=>"28"} permitted: true>
+  Rendering layout layouts/application.html.erb
+  Rendering books/new.html.erb within layouts/application
+  Rendered books/_form.html.erb (Duration: 26.0ms | Allocations: 3433)
+  Rendered books/new.html.erb within layouts/application (Duration: 27.9ms | Allocations: 3497)
+  Rendered layout layouts/application.html.erb (Duration: 34.4ms | Allocations: 4288)
+Completed 422 Unprocessable Entity in 46ms (Views: 38.2ms | ActiveRecord: 0.0ms | Allocations: 5068)
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+Started GET "/books/new" for 127.0.0.1 at 2024-09-06 17:53:57 +0000
+Processing by BooksController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering books/new.html.erb within layouts/application
+  Rendered books/_form.html.erb (Duration: 87.4ms | Allocations: 2689)
+  Rendered books/new.html.erb within layouts/application (Duration: 89.4ms | Allocations: 2760)
+  Rendered layout layouts/application.html.erb (Duration: 117.1ms | Allocations: 3624)
+Completed 200 OK in 121ms (Views: 120.1ms | ActiveRecord: 0.0ms | Allocations: 3910)
+Started POST "/books" for 127.0.0.1 at 2024-09-06 17:53:58 +0000
+Processing by BooksController#create as HTML
+  Parameters: {"book"=>{"title"=>"The Great Gatsby", "author"=>"F. Scott Fitzgerald", "price"=>"", "published_date(1i)"=>"2024", "published_date(2i)"=>"8", "published_date(3i)"=>"28"}, "commit"=>"Create Book"}
+Book Params: #<ActionController::Parameters {"title"=>"The Great Gatsby", "author"=>"F. Scott Fitzgerald", "price"=>"", "published_date(1i)"=>"2024", "published_date(2i)"=>"8", "published_date(3i)"=>"28"} permitted: true>
+  Rendering layout layouts/application.html.erb
+  Rendering books/new.html.erb within layouts/application
+  Rendered books/_form.html.erb (Duration: 31.2ms | Allocations: 4291)
+  Rendered books/new.html.erb within layouts/application (Duration: 32.7ms | Allocations: 4355)
+  Rendered layout layouts/application.html.erb (Duration: 38.3ms | Allocations: 5151)
+Completed 422 Unprocessable Entity in 48ms (Views: 41.2ms | ActiveRecord: 0.0ms | Allocations: 5937)
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mBEGIN[0m
+Started GET "/books/new" for 127.0.0.1 at 2024-09-06 17:53:58 +0000
+Processing by BooksController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering books/new.html.erb within layouts/application
+  Rendered books/_form.html.erb (Duration: 17.9ms | Allocations: 2689)
+  Rendered books/new.html.erb within layouts/application (Duration: 19.5ms | Allocations: 2760)
+  Rendered layout layouts/application.html.erb (Duration: 25.4ms | Allocations: 3621)
+Completed 200 OK in 30ms (Views: 28.3ms | ActiveRecord: 0.0ms | Allocations: 3907)
+Started POST "/books" for 127.0.0.1 at 2024-09-06 17:53:58 +0000
+Processing by BooksController#create as HTML
+  Parameters: {"book"=>{"title"=>"The Great Gatsby", "author"=>"F. Scott Fitzgerald", "price"=>"abc", "published_date(1i)"=>"2024", "published_date(2i)"=>"8", "published_date(3i)"=>"28"}, "commit"=>"Create Book"}
+Book Params: #<ActionController::Parameters {"title"=>"The Great Gatsby", "author"=>"F. Scott Fitzgerald", "price"=>"abc", "published_date(1i)"=>"2024", "published_date(2i)"=>"8", "published_date(3i)"=>"28"} permitted: true>
+  Rendering layout layouts/application.html.erb
+  Rendering books/new.html.erb within layouts/application
+  Rendered books/_form.html.erb (Duration: 24.0ms | Allocations: 3411)
+  Rendered books/new.html.erb within layouts/application (Duration: 25.7ms | Allocations: 3475)
+  Rendered layout layouts/application.html.erb (Duration: 32.0ms | Allocations: 4266)
+Completed 422 Unprocessable Entity in 42ms (Views: 35.0ms | ActiveRecord: 0.0ms | Allocations: 5048)
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[31mROLLBACK[0m
